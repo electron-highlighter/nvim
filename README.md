@@ -5,8 +5,7 @@ A dark Neovim theme written in Lua ported from the excellent
 
 ## Screenshot
 
-TODO: update this
-![image](https://user-images.githubusercontent.com/292349/115996270-78c6c480-a593-11eb-8ed0-7d1400b058f5.png)
+![image](/screenshot.jpg)
 
 ## ✨ Features
 
