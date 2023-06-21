@@ -22,58 +22,53 @@ extra themes for Kitty, Alacritty, iTerm and Fish.
 
 ## ✨ Features
 
-- supports the latest Neovim 5.0 features like TreeSitter and LSP
-- minimal inactive statusline
-- vim terminal colors
+- supports the latest Neovim 0.9.0 features
+- terminal colors
 - darker background for sidebar-like windows
-- color configs for
-  [Kitty](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include),
-  [Alacritty](https://github.com/alacritty/alacritty) and
-  [Fish Shell](https://fishshell.com/)
-- **lualine** theme
+- supports all major plugins
+- TokyoNight [extras](#-extras) for a lot of other apps
 
-### Plugin Support
+### 🍭 Extras
 
-- [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
-- [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
-- [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
-- [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
-- [Git Gutter](https://github.com/airblade/vim-gitgutter)
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-- [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
-- [WhichKey](https://github.com/liuchengxu/vim-which-key)
-- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [Dashboard](https://github.com/glepnir/dashboard-nvim)
-- [BufferLine](https://github.com/akinsho/nvim-bufferline.lua)
-- [Barbecue](https://github.com/utilyre/barbecue.nvim)
-- [Lualine](https://github.com/hoob3rt/lualine.nvim)
-- [Lightline](https://github.com/itchyny/lightline.vim)
-- [Neogit](https://github.com/TimUntersberger/neogit)
-- [vim-sneak](https://github.com/justinmk/vim-sneak)
-- [Fern](https://github.com/lambdalisue/fern.vim)
-- [Barbar](https://github.com/romgrk/barbar.nvim)
-- [Scrollbar](https://github.com/petertriho/nvim-scrollbar)
-- [Mini](https://github.com/echasnovski/mini.nvim)
+<!-- extras:start -->
+- [Alacritty](https://github.com/alacritty/alacritty) ([alacritty](extras/alacritty))
+- [Delta](https://github.com/dandavison/delta) ([delta](extras/delta))
+- [Dunst](https://dunst-project.org/) ([dunst](extras/dunst))
+- [Fish](https://fishshell.com/docs/current/index.html) ([fish](extras/fish))
+- [Fish Themes](https://fishshell.com/docs/current/interactive.html#syntax-highlighting) ([fish_themes](extras/fish_themes))
+- [Foot](https://codeberg.org/dnkl/foot) ([foot](extras/foot))
+- [iTerm](https://iterm2.com/) ([iterm](extras/iterm))
+- [Kitty](https://sw.kovidgoyal.net/kitty/conf.html) ([kitty](extras/kitty))
+- [Lua Table for testing](https://www.lua.org) ([lua](extras/lua))
+- [Prism](https://prismjs.com) ([prism](extras/prism))
+- [Sublime Text](https://www.sublimetext.com/docs/themes) ([sublime](extras/sublime))
+- [Terminator](https://gnome-terminator.readthedocs.io/en/latest/config.html) ([terminator](extras/terminator))
+- [Tilix](https://github.com/gnunn1/tilix) ([tilix](extras/tilix))
+- [Tmux](https://github.com/tmux/tmux/wiki) ([tmux](extras/tmux))
+- [WezTerm](https://wezfurlong.org/wezterm/config/) ([wezterm](extras/wezterm))
+- [Windows Terminal](https://aka.ms/terminal-documentation) ([windows_terminal](extras/windows_terminal))
+- [Xfce Terminal](https://docs.xfce.org/apps/terminal/advanced) ([xfceterm](extras/xfceterm))
+- [Xresources](https://wiki.archlinux.org/title/X_resources) ([xresources](extras/xresources))
+- [Zathura](https://pwmt.org/projects/zathura/) ([zathura](extras/zathura))
+<!-- extras:end -->
 
 ## ⚡️ Requirements
 
-- Neovim >= 0.6.0
+- Neovim >= 0.7.2
 
 ## 📦 Installation
 
 Install the theme with your preferred package manager:
 
-[vim-plug](https://github.com/junegunn/vim-plug)
-
-```vim
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-```
-
-[packer](https://github.com/wbthomason/packer.nvim)
+[folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
-use 'folke/tokyonight.nvim'
+{
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+}
 ```
 
 ## 🚀 Usage
@@ -274,7 +269,7 @@ local colors = require("tokyonight.colors").setup() -- pass in any of the config
 local util = require("tokyonight.util")
 
 aplugin.background = colors.bg_dark
-aplugin.my_error = util.brighten(colors.red1, 0.3)
+aplugin.my_error = util.lighten(colors.red1, 0.3) -- number between 0 and 1. 0 results in white, 1 results in red1
 ```
 
 ## 🔥 Contributing
@@ -287,6 +282,11 @@ How to add a new extra template:
 1. create a file like `lua/tokyonight/extra/cool-app.lua`
 2. add the name and output file extension to the `extras` table in
    `lua/tokyonight/extra/init.lua`
-3. in Nvim, run `:lua require("tokyonight.extra").setup()` to generate / update
+3. run the shell script below to generate / update
    extra themes
-4. commit the newly created themes under `extra/`
+
+   ```sh
+   $ nvim --headless "+lua require('tokyonight.extra').setup()" +qa
+   ```
+
+4. check the newly created themes under `extra/`, but **DO NOT** commit them! They will be build automatically by the ci

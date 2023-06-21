@@ -25,7 +25,7 @@ function M.setup()
   local c = theme.colors
 
   theme.highlights = {
-    Foo = { bg = c.magenta2, fg = c.magenta2 },
+    Foo = { bg = c.magenta2, fg = c.fg },
 
     Comment = { fg = c.comment, style = options.styles.comments }, -- any comment
     ColorColumn = { bg = c.black }, -- used for the columns set with 'colorcolumn'
@@ -64,6 +64,7 @@ function M.setup()
     NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
     NormalFloat = { fg = c.fg_float, bg = c.bg_float }, -- Normal text in floating windows.
     FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
+    FloatTitle = { fg = c.border_highlight, bg = c.bg_float },
     Pmenu = { bg = c.bg_popup, fg = c.fg }, -- Popup menu: normal item.
     PmenuSel = { bg = util.darken(c.fg_gutter, 0.8) }, -- Popup menu: selected item.
     PmenuSbar = { bg = util.lighten(c.bg_popup, 0.95) }, -- Popup menu: scrollbar.
@@ -130,7 +131,7 @@ function M.setup()
     -- Tag           = { }, --    you can use CTRL-] on this
     -- Delimiter     = { }, --  character that needs attention
     -- SpecialComment= { }, -- special things inside a comment
-    -- Debug         = { }, --    debugging statements
+    Debug = { fg = c.orange }, --    debugging statements
 
     Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
     Bold = { bold = true },
@@ -162,11 +163,6 @@ function M.setup()
     markdownH2 = { fg = c.blue, bold = true },
     markdownLinkText = { fg = c.blue, underline = true },
 
-    ["@punctuation.special.markdown"] = { fg = c.orange, bold = true },
-    ["@text.todo.unchecked"] = { fg = c.blue }, -- For brackets and parens.
-    ["@text.todo.checked"] = { fg = c.green1 }, -- For brackets and parens.
-    ["@text.literal.markdown_inline"] = { bg = c.terminal_black, fg = c.blue },
-    ["@text.literal.markdown"] = { link = "Normal" },
     ["helpCommand"] = { bg = c.terminal_black, fg = c.blue },
 
     debugPC = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
@@ -183,6 +179,7 @@ function M.setup()
     DiagnosticWarn = { fg = c.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
     DiagnosticInfo = { fg = c.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
     DiagnosticHint = { fg = c.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+    DiagnosticUnnecessary = { fg = c.terminal_black }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
 
     DiagnosticVirtualTextError = { bg = util.darken(c.error, 0.1), fg = c.error }, -- Used for "Error" diagnostic virtual text
     DiagnosticVirtualTextWarn = { bg = util.darken(c.warning, 0.1), fg = c.warning }, -- Used for "Warning" diagnostic virtual text
@@ -196,78 +193,111 @@ function M.setup()
 
     LspSignatureActiveParameter = { bg = util.darken(c.bg_visual, 0.4), bold = true },
     LspCodeLens = { fg = c.comment },
+    LspInlayHint = { bg = util.darken(c.blue7, 0.1), fg = c.dark3 },
 
     LspInfoBorder = { fg = c.border_highlight, bg = c.bg_float },
 
     ALEErrorSign = { fg = c.error },
     ALEWarningSign = { fg = c.warning },
 
-    -- These groups are for the neovim tree-sitter highlights.
-    -- As of writing, tree-sitter support is a WIP, group names may change.
-    -- By default, most of these groups link to an appropriate Vim group,
-    -- TSError -> Error for example, so you do not have to define these unless
-    -- you explicitly want to support Treesitter's improved syntax awareness.
+    DapStoppedLine = { bg = util.darken(c.warning, 0.1) }, -- Used for "Warning" diagnostic virtual text
 
-    -- TSAnnotation        = { };    -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSAttribute         = { };    -- (unstable) TODO: docs
-    -- TSBoolean           = { };    -- For booleans.
-    -- TSCharacter         = { };    -- For characters.
-    -- TSComment           = { };    -- For comment blocks.
-    TSNote = { fg = c.bg, bg = c.info },
-    ["@text.warning"] = { fg = c.bg, bg = c.warning },
-    ["@text.danger"] = { fg = c.bg, bg = c.error },
-    ["@constructor"] = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-    -- TSConditional       = { };    -- For keywords related to conditionnals.
-    -- TSConstant          = { };    -- For constants
-    -- TSConstBuiltin      = { };    -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro        = { };    -- For constants that are defined by macros: `NULL` in C.
-    -- TSError             = { };    -- For syntax/parser errors.
-    -- TSException         = { };    -- For exception related keywords.
-    ["@field"] = { fg = c.green1 }, -- For fields.
-    -- TSFloat             = { };    -- For floats.
-    -- TSFunction          = { };    -- For function (calls and definitions).
-    -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    -- TSInclude           = { };    -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    ["@keyword"] = { fg = c.purple, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
-    ["@keyword.function"] = { fg = c.magenta, style = options.styles.functions }, -- For keywords used to define a fuction.
-    ["@label"] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSMethod            = { };    -- For method calls and definitions.
-    -- TSNamespace         = { };    -- For identifiers referring to modules and namespaces.
-    -- TSNone              = { };    -- TODO: docs
-    -- TSNumber            = { };    -- For all numbers
+    -- These groups are for the Neovim tree-sitter highlights.
+    -- As of writing, tree-sitter support is a WIP, group names may change.
+
+    --- Misc
+    -- TODO:
+    -- ["@comment.documentation"] = { },
     ["@operator"] = { fg = c.blue5 }, -- For any operator: `+`, but also `->` and `*` in C.
-    ["@parameter"] = { fg = c.yellow }, -- For parameters of a function.
-    -- TSParameterReference= { };    -- For references to parameters of a function.
-    ["@property"] = { fg = c.green1 }, -- Same as `TSField`.
+
+    --- Punctuation
     ["@punctuation.delimiter"] = { fg = c.blue5 }, -- For delimiters ie: `.`
     ["@punctuation.bracket"] = { fg = c.fg_dark }, -- For brackets and parens.
     ["@punctuation.special"] = { fg = c.blue5 }, -- For special punctutation that does not fall in the catagories before.
-    -- TSRepeat            = { };    -- For keywords related to loops.
-    -- TSString            = { };    -- For strings.
+    ["@punctuation.special.markdown"] = { fg = c.orange, bold = true },
+
+    --- Literals
+    ["@string.documentation"] = { fg = c.yellow },
     ["@string.regex"] = { fg = c.blue6 }, -- For regexes.
     ["@string.escape"] = { fg = c.magenta }, -- For escape characters within a string.
-    -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
-    -- TSType              = { };    -- For types.
-    -- TSTypeBuiltin       = { };    -- For builtin types.
-    ["@variable"] = { style = options.styles.variables }, -- Any variable name that does not have another highlight.
+
+    --- Functions
+    ["@constructor"] = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    ["@parameter"] = { fg = c.yellow }, -- For parameters of a function.
+    -- TODO:
+    -- ["@parameter.builtin"] = {}, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+
+    --- Keywords
+    ["@keyword"] = { fg = c.purple, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
+    -- TODO:
+    -- ["@keyword.coroutine"] = { }, -- For keywords related to coroutines.
+    ["@keyword.function"] = { fg = c.magenta, style = options.styles.functions }, -- For keywords used to define a fuction.
+
+    ["@label"] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
+
+    --- Types
+    ["@type.builtin"] = { fg = util.darken(c.blue1, 0.8) },
+    ["@field"] = { fg = c.green1 }, -- For fields.
+    ["@property"] = { fg = c.green1 },
+
+    --- Identifiers
+    ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
 
-    -- TSTag               = { };    -- Tags like html tag names.
-    -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
-    -- TSText              = { };    -- For strings considered text in a markup language.
+    --- Text
+    -- ["@text.literal.markdown"] = { fg = c.blue },
+    ["@text.literal.markdown_inline"] = { bg = c.terminal_black, fg = c.blue },
     ["@text.reference"] = { fg = c.teal },
-    -- TSEmphasis          = { };    -- For text to be represented with emphasis.
-    -- TSUnderline         = { };    -- For text to be represented with an underline.
-    -- TSStrike            = { };    -- For strikethrough text.
-    -- TSTitle             = { };    -- Text that is part of a title.
-    -- TSLiteral           = { };    -- Literal text.
-    -- TSURI               = { };    -- Any URI like a link or email.
+
+    ["@text.todo.unchecked"] = { fg = c.blue }, -- For brackets and parens.
+    ["@text.todo.checked"] = { fg = c.green1 }, -- For brackets and parens.
+    ["@text.warning"] = { fg = c.bg, bg = c.warning },
+    ["@text.danger"] = { fg = c.bg, bg = c.error },
+
     ["@text.diff.add"] = { link = "DiffAdd" },
     ["@text.diff.delete"] = { link = "DiffDelete" },
 
-    -- Lua
-    -- luaTSProperty = { fg = c.red }, -- Same as `TSField`.
+    ["@namespace"] = { link = "Include" },
+
+    -- tsx
+    ["@tag.tsx"] = { fg = c.red },
+    ["@constructor.tsx"] = { fg = c.blue1 },
+    ["@tag.delimiter.tsx"] = { fg = util.darken(c.blue, 0.7) },
+
+    -- LSP Semantic Token Groups
+    ["@lsp.type.boolean"] = { link = "@boolean" },
+    ["@lsp.type.builtinType"] = { link = "@type.builtin" },
+    ["@lsp.type.comment"] = { link = "@comment" },
+    ["@lsp.type.enum"] = { link = "@type" },
+    ["@lsp.type.enumMember"] = { link = "@constant" },
+    ["@lsp.type.escapeSequence"] = { link = "@string.escape" },
+    ["@lsp.type.formatSpecifier"] = { link = "@punctuation.special" },
+    ["@lsp.type.interface"] = { fg = util.lighten(c.blue1, 0.7) },
+    ["@lsp.type.keyword"] = { link = "@keyword" },
+    ["@lsp.type.namespace"] = { link = "@namespace" },
+    ["@lsp.type.number"] = { link = "@number" },
+    ["@lsp.type.operator"] = { link = "@operator" },
+    ["@lsp.type.parameter"] = { link = "@parameter" },
+    ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
+    ["@lsp.type.string.rust"] = { link = "@string" },
+    ["@lsp.type.typeAlias"] = { link = "@type.definition" },
+    ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = c.error },
+    ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+    ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
+    ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
+    ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
+    ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.keyword.async"] = { link = "@keyword.coroutine" },
+    ["@lsp.typemod.macro.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.operator.injected"] = { link = "@operator" },
+    ["@lsp.typemod.string.injected"] = { link = "@string" },
+    ["@lsp.typemod.type.defaultLibrary"] = { fg = util.darken(c.blue1, 0.8) },
+    ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+    ["@lsp.typemod.variable.injected"] = { link = "@variable" },
+    -- NOTE: maybe add these with distinct highlights?
+    -- ["@lsp.typemod.variable.globalScope"] (global variables)
 
     -- ts-rainbow
     rainbowcol1 = { fg = c.red },
@@ -277,6 +307,15 @@ function M.setup()
     rainbowcol5 = { fg = c.blue },
     rainbowcol6 = { fg = c.magenta },
     rainbowcol7 = { fg = c.purple },
+
+    -- ts-rainbow2 (maintained fork)
+    TSRainbowRed = { fg = c.red },
+    TSRainbowOrange = { fg = c.orange },
+    TSRainbowYellow = { fg = c.yellow },
+    TSRainbowGreen = { fg = c.green },
+    TSRainbowBlue = { fg = c.blue },
+    TSRainbowViolet = { fg = c.purple },
+    TSRainbowCyan = { fg = c.cyan },
 
     -- LspTrouble
     TroubleText = { fg = c.fg_dark },
@@ -332,6 +371,9 @@ function M.setup()
     GitGutterAdd = { fg = c.gitSigns.add }, -- diff mode: Added line |diff.txt|
     GitGutterChange = { fg = c.gitSigns.change }, -- diff mode: Changed line |diff.txt|
     GitGutterDelete = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
+    GitGutterAddLineNr = { fg = c.gitSigns.add },
+    GitGutterChangeLineNr = { fg = c.gitSigns.change },
+    GitGutterDeleteLineNr = { fg = c.gitSigns.delete },
 
     -- GitSigns
     GitSignsAdd = { fg = c.gitSigns.add }, -- diff mode: Added line |diff.txt|
@@ -387,7 +429,7 @@ function M.setup()
     AlphaShortcut = { fg = c.orange },
     AlphaHeader = { fg = c.blue },
     AlphaHeaderLabel = { fg = c.orange },
-    AlphaFooter = { fg = c.yellow, italic = true },
+    AlphaFooter = { fg = c.blue1 },
     AlphaButtons = { fg = c.cyan },
 
     -- WhichKey
@@ -429,16 +471,16 @@ function M.setup()
     BufferLineIndicatorSelected = { fg = c.git.change },
 
     -- Barbar
-    BufferCurrent = { bg = c.fg_gutter, fg = c.fg },
-    BufferCurrentERROR = { bg = c.fg_gutter, fg = c.error },
-    BufferCurrentHINT = { bg = c.fg_gutter, fg = c.hint },
-    -- BufferCurrentIcon = { bg = c.fg_gutter, fg = c.},
-    BufferCurrentINFO = { bg = c.fg_gutter, fg = c.info },
-    BufferCurrentWARN = { bg = c.fg_gutter, fg = c.warning },
-    BufferCurrentIndex = { bg = c.fg_gutter, fg = c.info },
-    BufferCurrentMod = { bg = c.fg_gutter, fg = c.warning },
-    BufferCurrentSign = { bg = c.fg_gutter, fg = c.info },
-    BufferCurrentTarget = { bg = c.fg_gutter, fg = c.red },
+    BufferCurrent = { bg = c.bg, fg = c.fg },
+    BufferCurrentERROR = { bg = c.bg, fg = c.error },
+    BufferCurrentHINT = { bg = c.bg, fg = c.hint },
+    -- BufferCurrentIcon = { bg = c.bg, fg = c.},
+    BufferCurrentINFO = { bg = c.bg, fg = c.info },
+    BufferCurrentWARN = { bg = c.bg, fg = c.warning },
+    BufferCurrentIndex = { bg = c.bg, fg = c.info },
+    BufferCurrentMod = { bg = c.bg, fg = c.warning },
+    BufferCurrentSign = { bg = c.bg, fg = c.bg },
+    BufferCurrentTarget = { bg = c.bg, fg = c.red },
     BufferAlternate = { bg = c.fg_gutter, fg = c.fg },
     BufferAlternateERROR = { bg = c.fg_gutter, fg = c.error },
     BufferAlternateHINT = { bg = c.fg_gutter, fg = c.hint },
@@ -459,18 +501,18 @@ function M.setup()
     BufferVisibleMod = { bg = c.bg_statusline, fg = c.warning },
     BufferVisibleSign = { bg = c.bg_statusline, fg = c.info },
     BufferVisibleTarget = { bg = c.bg_statusline, fg = c.red },
-    BufferInactive = { bg = c.bg_statusline, fg = c.dark5 },
-    BufferInactiveERROR = { bg = c.bg_statusline, fg = util.darken(c.error, 0.7) },
-    BufferInactiveHINT = { bg = c.bg_statusline, fg = util.darken(c.hint, 0.7) },
-    -- BufferInactiveIcon = { bg = c.bg_statusline, fg = util.darken(c., 0.7) },
-    BufferInactiveINFO = { bg = c.bg_statusline, fg = util.darken(c.info, 0.7) },
-    BufferInactiveWARN = { bg = c.bg_statusline, fg = util.darken(c.warning, 0.7) },
-    BufferInactiveIndex = { bg = c.bg_statusline, fg = c.dark5 },
-    BufferInactiveMod = { bg = c.bg_statusline, fg = util.darken(c.warning, 0.7) },
-    BufferInactiveSign = { bg = c.bg_statusline, fg = c.border_highlight },
-    BufferInactiveTarget = { bg = c.bg_statusline, fg = c.red },
+    BufferInactive = { bg = util.darken(c.bg_highlight, 0.4), fg = util.darken(c.dark5, 0.8) },
+    BufferInactiveERROR = { bg = util.darken(c.bg_highlight, 0.4), fg = util.darken(c.error, 0.8) },
+    BufferInactiveHINT = { bg = util.darken(c.bg_highlight, 0.4), fg = util.darken(c.hint, 0.8) },
+    -- BufferInactiveIcon = { bg = c.bg_statusline, fg = util.darken(c., 0.1) },
+    BufferInactiveINFO = { bg = util.darken(c.bg_highlight, 0.4), fg = util.darken(c.info, 0.8) },
+    BufferInactiveWARN = { bg = util.darken(c.bg_highlight, 0.4), fg = util.darken(c.warning, 0.8) },
+    BufferInactiveIndex = { bg = util.darken(c.bg_highlight, 0.4), fg = c.dark5 },
+    BufferInactiveMod = { bg = util.darken(c.bg_highlight, 0.4), fg = util.darken(c.warning, 0.8) },
+    BufferInactiveSign = { bg = util.darken(c.bg_highlight, 0.4), fg = c.bg },
+    BufferInactiveTarget = { bg = util.darken(c.bg_highlight, 0.4), fg = c.red },
     BufferOffset = { bg = c.bg_statusline, fg = c.dark5 },
-    BufferTabpageFill = { bg = c.bg_statusline, fg = c.dark5 },
+    BufferTabpageFill = { bg = util.darken(c.bg_highlight, 0.8), fg = c.dark5 },
     BufferTabpages = { bg = c.bg_statusline, fg = c.none },
 
     -- Sneak
@@ -491,6 +533,9 @@ function M.setup()
     LeapLabelSecondary = { fg = c.green1, bold = true },
     LeapBackdrop = { fg = c.dark3 },
 
+    FlashBackdrop = { fg = c.dark3 },
+    FlashLabel = { bg = c.magenta2, bold = true, fg = c.fg },
+
     LightspeedGreyWash = { fg = c.dark3 },
     -- LightspeedCursor = { link = "Cursor" },
     LightspeedLabel = { fg = c.magenta2, bold = true, underline = true },
@@ -508,6 +553,7 @@ function M.setup()
     -- Cmp
     CmpDocumentation = { fg = c.fg, bg = c.bg_float },
     CmpDocumentationBorder = { fg = c.border_highlight, bg = c.bg_float },
+    CmpGhostText = { fg = c.terminal_black },
 
     CmpItemAbbr = { fg = c.fg, bg = c.none },
     CmpItemAbbrDeprecated = { fg = c.fg_gutter, bg = c.none, strikethrough = true },
@@ -641,7 +687,7 @@ function M.setup()
     MiniCursorword = { bg = c.fg_gutter },
     MiniCursorwordCurrent = { bg = c.fg_gutter },
 
-    MiniIndentscopeSymbol = { fg = c.blue1 },
+    MiniIndentscopeSymbol = { fg = c.blue1, nocombine = true },
     MiniIndentscopePrefix = { nocombine = true }, -- Make it invisible
 
     MiniJump = { bg = c.magenta2, fg = "#ffffff" },
@@ -739,6 +785,7 @@ function M.setup()
     end
   end
 
+  ---@type table<string, table>
   theme.defer = {}
 
   if options.hide_inactive_statusline then

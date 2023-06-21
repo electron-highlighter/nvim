@@ -108,7 +108,7 @@ function M.setup(opts)
 
   -- Color Palette
   ---@class ColorScheme: Palette
-  local colors = vim.tbl_deep_extend("force", M.default, palette)
+  local colors = vim.tbl_deep_extend("force", vim.deepcopy(M.default), palette)
 
   util.bg = colors.bg
   util.day_brightness = config.options.day_brightness
@@ -148,6 +148,11 @@ function M.setup(opts)
   colors.warning = colors.yellow
   colors.info = colors.blue2
   colors.hint = colors.teal
+
+  colors.delta = {
+    add = util.darken(colors.green2, 0.45),
+    delete = util.darken(colors.red1, 0.45),
+  }
 
   config.options.on_colors(colors)
   if opts.transform and config.is_day() then
