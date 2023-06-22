@@ -19,16 +19,16 @@ M.default = {
   orange = "#ffbf7a",
   yellow = "#fffa9e",
   green = "#6af699",
-  red = "#ff5874",
+  red = "#f7768e",
   git = {
     change = "#ff9e64",
     add = "#10b981",
-    delete = "#ff5874",
+    delete = "#f7768e",
   },
   gitSigns = {
     add = "#10b981",
     change = "#ff9e64",
-    delete = "#ff5874"
+    delete = "#f7768e"
   },
   dark3 = "#545c7e",
   dark5 = "#737aa2",
@@ -43,7 +43,7 @@ M.default = {
   teal = "#14b8a6",
   green1 = "#10b981",
   green2 = "#059669",
-  red1 = "#ef4444",
+  red1 = "#ff5874",
 }
 
 ---@return ColorScheme
