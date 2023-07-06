@@ -152,6 +152,7 @@ function M.setup()
 
     htmlH1 = { fg = c.magenta, bold = true },
     htmlH2 = { fg = c.blue, bold = true },
+    htmlTagName = { fg = c.red },
 
     yamlBlockMappingKey = { fg = c.blue },
     yamlBlockCollectionItemStart = { fg = c.fg },
@@ -170,6 +171,18 @@ function M.setup()
     markdownH1 = { fg = c.magenta, bold = true },
     markdownH2 = { fg = c.blue, bold = true },
     markdownLinkText = { fg = c.blue, underline = true },
+    -- markdownHeadingDelimiter = { fg = c.red },
+    -- markdownCode = { fg = c.teal },
+    -- markdownCodeBlock = { fg = c.teal },
+    -- markdownH1 = { fg = c.red },
+    -- markdownH2 = { fg = c.red },
+    -- markdownH3 = { fg = c.red },
+    -- markdownH4 = { fg = c.red },
+    -- markdownH5 = { fg = c.red },
+    -- markdownH6 = { fg = c.red },
+    -- markdownLinkText = { fg = c.blue },
+    -- markdownUrl = { fg = c.orange },
+    -- markdownListMarker = { fg = c.green },
 
     ["helpCommand"] = { bg = c.terminal_black, fg = c.blue },
 
