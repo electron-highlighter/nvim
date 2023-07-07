@@ -165,24 +165,18 @@ function M.setup()
     mkdCodeEnd = { fg = c.teal, bold = true },
     -- mkdLink = { fg = c.blue, underline = true },
 
-    markdownHeadingDelimiter = { fg = c.orange, bold = true },
+    markdownHeadingDelimiter = { fg = c.red },
     markdownCode = { fg = c.teal },
     markdownCodeBlock = { fg = c.teal },
-    markdownH1 = { fg = c.magenta, bold = true },
-    markdownH2 = { fg = c.blue, bold = true },
-    markdownLinkText = { fg = c.blue, underline = true },
-    -- markdownHeadingDelimiter = { fg = c.red },
-    -- markdownCode = { fg = c.teal },
-    -- markdownCodeBlock = { fg = c.teal },
-    -- markdownH1 = { fg = c.red },
-    -- markdownH2 = { fg = c.red },
-    -- markdownH3 = { fg = c.red },
-    -- markdownH4 = { fg = c.red },
-    -- markdownH5 = { fg = c.red },
-    -- markdownH6 = { fg = c.red },
-    -- markdownLinkText = { fg = c.blue },
-    -- markdownUrl = { fg = c.orange },
-    -- markdownListMarker = { fg = c.green },
+    markdownH1 = { fg = c.red },
+    markdownH2 = { fg = c.red },
+    markdownH3 = { fg = c.red },
+    markdownH4 = { fg = c.red },
+    markdownH5 = { fg = c.red },
+    markdownH6 = { fg = c.red },
+    markdownLinkText = { fg = c.blue },
+    markdownUrl = { fg = c.orange },
+    markdownListMarker = { fg = c.green },
 
     ["helpCommand"] = { bg = c.terminal_black, fg = c.blue },
 
@@ -257,7 +251,7 @@ function M.setup()
     ["@label"] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
 
     --- Types
-    ["@type.builtin"] = { fg = c.yellow },
+    ["@type.builtin"] = { fg = c.orange },
     ["@field"] = { fg = c.fg }, -- For fields.
     ["@property"] = { fg = c.fg },
 
