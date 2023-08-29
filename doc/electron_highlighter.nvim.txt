@@ -104,13 +104,7 @@ CONFIGURATION                      *electron_highlighter.nvim-electron-highlight
 
   configuration needs to be set **BEFORE** loading the color scheme with
   `colorscheme electron_highlighter`
-The theme comes in four styles, `storm`, `moon`, a darker variant `night` and
-`day`.
-
-The **day** style will be used if:
-
-- `{ style = "day"}` was passed to `setup(options)`
-- or `vim.o.background = "light"`
+The theme comes in two styles - the default, and a darker variant `night`.
 
 Electron Highlighter will use the default options, unless you call `setup`.
 
@@ -118,8 +112,7 @@ Electron Highlighter will use the default options, unless you call `setup`.
     require("electron_highlighter").setup({
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-      light_style = "day", -- The theme is used when the background is set to light
+      style = "default", -- The theme comes in two styles, "default" and a darker variant "night"
       transparent = false, -- Enable this to disable setting the background color
       terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
       styles = {

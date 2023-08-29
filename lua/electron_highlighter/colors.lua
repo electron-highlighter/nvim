@@ -46,6 +46,49 @@ M.default = {
   red1 = "#ff5874",
 }
 
+M.night = {
+  none = "NONE",
+  bg = "#141820",
+  bg_dark = "#141820",
+  bg_highlight = "#37435C",
+  terminal_black = "#414868",
+  fg = "#a8b5d1",
+  fg_dark = "#99a3b8",
+  fg_gutter = "#3b4261",
+  comment = "#506686",
+  blue = "#82aaff",
+  cyan = "#4ff2f8",
+  purple = "#a78bfa",
+  orange = "#ffbf7a",
+  yellow = "#fffa9e",
+  green = "#6af699",
+  red = "#f7768e",
+  git = {
+    change = "#ff9e64",
+    add = "#10b981",
+    delete = "#f7768e",
+  },
+  gitSigns = {
+    add = "#10b981",
+    change = "#ff9e64",
+    delete = "#f7768e"
+  },
+  dark3 = "#545c7e",
+  dark5 = "#737aa2",
+  blue0 = "#3d59a1",
+  blue1 = "#22d3ee",
+  blue2 = "#06b6d4",
+  blue5 = "#7dd3fc",
+  blue6 = "#a5f3fc",
+  blue7 = "#375574",
+  magenta = "#c792ea",
+  magenta2 = "#ff007c",
+  teal = "#14b8a6",
+  green1 = "#10b981",
+  green2 = "#059669",
+  red1 = "#ff5874",
+}
+
 ---@return ColorScheme
 function M.setup(opts)
   opts = opts or {}

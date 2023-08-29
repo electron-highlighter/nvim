@@ -82,12 +82,7 @@ let g:lightline = {'colorscheme': 'electron_highlighter'}
 > ❗️ configuration needs to be set **BEFORE** loading the color scheme with
 > `colorscheme electron_highlighter`
 
-The theme comes in four styles, `storm`, `moon`, a darker variant `night` and `day`.
-
-The **day** style will be used if:
-
-- `{ style = "day"}` was passed to `setup(options)`
-- or `vim.o.background = "light"`
+The theme comes in two styles: the default, and a darker variant `night`.
 
 Electron Highlighter will use the default options, unless you call `setup`.
 

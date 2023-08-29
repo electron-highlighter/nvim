@@ -4,8 +4,7 @@ local M = {}
 ---@field on_colors fun(colors: ColorScheme)
 ---@field on_highlights fun(highlights: Highlights, colors: ColorScheme)
 local defaults = {
-  style = "storm", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-  light_style = "day", -- The theme is used when the background is set to light
+  style = "default", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
