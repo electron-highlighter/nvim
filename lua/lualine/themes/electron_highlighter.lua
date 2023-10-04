@@ -10,13 +10,13 @@ electron_highlighter.normal = {
 }
 
 electron_highlighter.insert = {
-  a = { bg = colors.green, fg = colors.black },
-  b = { bg = colors.fg_gutter, fg = colors.green },
+  a = { bg = colors.teal, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.teal },
 }
 
 electron_highlighter.command = {
-  a = { bg = colors.yellow, fg = colors.black },
-  b = { bg = colors.fg_gutter, fg = colors.yellow },
+  a = { bg = colors.orange, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.orange },
 }
 
 electron_highlighter.visual = {
