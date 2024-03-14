@@ -30,7 +30,7 @@ local M = {
   context_boolean = { fg = c.orange },
   context_array = { fg = c.orange },
   context_object = { fg = c.orange },
-  context_key = { fg = c.purple },
+  context_key = { fg = c.magenta },
   context_null = { fg = c.blue1 },
   context_enum_member = { fg = c.green1 },
   context_struct = { fg = c.orange },

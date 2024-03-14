@@ -243,7 +243,7 @@ function M.setup()
     ["@parameter.builtin"] = { fg = util.lighten(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
     --- Keywords
-    ["@keyword"] = { fg = c.purple, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
+    ["@keyword"] = { fg = c.magenta, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
     -- TODO:
     -- ["@keyword.coroutine"] = { }, -- For keywords related to coroutines.
     ["@keyword.function"] = { fg = c.magenta, style = options.styles.functions }, -- For keywords used to define a fuction.
@@ -337,7 +337,7 @@ function M.setup()
     ["@text.title.3.markdown"] = { fg = c.green, bold = true},
     ["@text.title.4.markdown"] = { fg = c.teal, bold = true},
     ["@text.title.5.markdown"] = { fg = c.magenta, bold = true},
-    ["@text.title.6.markdown"] = { fg = c.purple, bold = true},
+    ["@text.title.6.markdown"] = { fg = c.magenta, bold = true},
 
     -- ts-rainbow
     rainbowcol1 = { fg = c.red },
@@ -346,7 +346,7 @@ function M.setup()
     rainbowcol4 = { fg = c.teal },
     rainbowcol5 = { fg = c.blue },
     rainbowcol6 = { fg = c.magenta },
-    rainbowcol7 = { fg = c.purple },
+    rainbowcol7 = { fg = c.magenta },
 
     -- ts-rainbow2 (maintained fork)
     TSRainbowRed = { fg = c.red },
@@ -354,7 +354,7 @@ function M.setup()
     TSRainbowYellow = { fg = c.yellow },
     TSRainbowGreen = { fg = c.green },
     TSRainbowBlue = { fg = c.blue },
-    TSRainbowViolet = { fg = c.purple },
+    TSRainbowViolet = { fg = c.magenta },
     TSRainbowCyan = { fg = c.cyan },
 
     -- LspTrouble
@@ -381,7 +381,7 @@ function M.setup()
 
     -- Neogit
     NeogitBranch = { fg = c.magenta },
-    NeogitRemote = { fg = c.purple },
+    NeogitRemote = { fg = c.magenta },
     NeogitHunkHeader = { bg = c.bg_highlight, fg = c.fg },
     NeogitHunkHeaderHighlight = { bg = c.fg_gutter, fg = c.blue },
     NeogitDiffContextHighlight = { bg = util.darken(c.fg_gutter, 0.5), fg = c.fg_dark },
@@ -401,7 +401,7 @@ function M.setup()
     NeotestBorder = { fg = c.blue },
     NeotestIndent = { fg = c.fg_sidebar },
     NeotestExpandMarker = { fg = c.fg_sidebar },
-    NeotestAdapterName = { fg = c.purple, bold = true },
+    NeotestAdapterName = { fg = c.magenta, bold = true },
     NeotestWinSelect = { fg = c.blue },
     NeotestMarked = { fg = c.blue },
     NeotestTarget = { fg = c.blue },
@@ -436,7 +436,7 @@ function M.setup()
     NvimTreeGitNew = { fg = c.git.add },
     NvimTreeGitDeleted = { fg = c.git.delete },
     NvimTreeOpenedFile = { bg = c.bg_highlight },
-    NvimTreeSpecialFile = { fg = c.purple, underline = true },
+    NvimTreeSpecialFile = { fg = c.magenta, underline = true },
     NvimTreeIndentMarker = { fg = c.fg_gutter },
     NvimTreeImageFile = { fg = c.fg_sidebar },
     NvimTreeSymlink = { fg = c.blue },
@@ -494,10 +494,10 @@ function M.setup()
     LspSagaCodeActionBorder = { fg = c.blue },
     LspSagaFinderSelection = { fg = c.bg_visual },
     LspSagaCodeActionTitle = { fg = c.blue1 },
-    LspSagaCodeActionContent = { fg = c.purple },
+    LspSagaCodeActionContent = { fg = c.magenta },
     LspSagaSignatureHelpBorder = { fg = c.red },
-    ReferencesCount = { fg = c.purple },
-    DefinitionCount = { fg = c.purple },
+    ReferencesCount = { fg = c.magenta },
+    DefinitionCount = { fg = c.magenta },
     DefinitionIcon = { fg = c.blue },
     ReferencesIcon = { fg = c.blue },
     TargetWord = { fg = c.cyan },
@@ -652,8 +652,8 @@ function M.setup()
     NavicIconsBoolean = { fg = c.orange, bg = c.none },
     NavicIconsArray = { fg = c.orange, bg = c.none },
     NavicIconsObject = { fg = c.orange, bg = c.none },
-    NavicIconsKey = { fg = c.purple, bg = c.none },
-    NavicIconsKeyword = { fg = c.purple, bg = c.none },
+    NavicIconsKey = { fg = c.magenta, bg = c.none },
+    NavicIconsKeyword = { fg = c.magenta, bg = c.none },
     NavicIconsNull = { fg = c.orange, bg = c.none },
     NavicIconsEnumMember = { fg = c.green1, bg = c.none },
     NavicIconsStruct = { fg = c.orange, bg = c.none },
@@ -664,7 +664,7 @@ function M.setup()
     NavicSeparator = { fg = c.fg, bg = c.none },
 
     IndentBlanklineChar = { fg = c.fg_gutter, nocombine = true },
-    IndentBlanklineContextChar = { fg = c.purple, nocombine = true },
+    IndentBlanklineContextChar = { fg = c.magenta, nocombine = true },
 
     -- Scrollbar
     ScrollbarHandle = { fg = c.none, bg = c.bg_highlight },
@@ -684,8 +684,8 @@ function M.setup()
     ScrollbarHintHandle = { fg = c.hint, bg = c.bg_highlight },
     ScrollbarHint = { fg = c.hint, bg = c.none },
 
-    ScrollbarMiscHandle = { fg = c.purple, bg = c.bg_highlight },
-    ScrollbarMisc = { fg = c.purple, bg = c.none },
+    ScrollbarMiscHandle = { fg = c.magenta, bg = c.bg_highlight },
+    ScrollbarMisc = { fg = c.magenta, bg = c.none },
 
     -- Yanky
     YankyPut = { link = "IncSearch" },
@@ -701,19 +701,19 @@ function M.setup()
     NotifyWARNBorder = { fg = util.darken(c.warning, 0.3), bg = options.transparent and c.none or c.bg },
     NotifyINFOBorder = { fg = util.darken(c.info, 0.3), bg = options.transparent and c.none or c.bg },
     NotifyDEBUGBorder = { fg = util.darken(c.comment, 0.3), bg = options.transparent and c.none or c.bg },
-    NotifyTRACEBorder = { fg = util.darken(c.purple, 0.3), bg = options.transparent and c.none or c.bg },
+    NotifyTRACEBorder = { fg = util.darken(c.magenta, 0.3), bg = options.transparent and c.none or c.bg },
     --- Icons
     NotifyERRORIcon = { fg = c.error },
     NotifyWARNIcon = { fg = c.warning },
     NotifyINFOIcon = { fg = c.info },
     NotifyDEBUGIcon = { fg = c.comment },
-    NotifyTRACEIcon = { fg = c.purple },
+    NotifyTRACEIcon = { fg = c.magenta },
     --- Title
     NotifyERRORTitle = { fg = c.error },
     NotifyWARNTitle = { fg = c.warning },
     NotifyINFOTitle = { fg = c.info },
     NotifyDEBUGTitle = { fg = c.comment },
-    NotifyTRACETitle = { fg = c.purple },
+    NotifyTRACETitle = { fg = c.magenta },
     --- Body
     NotifyERRORBody = { fg = c.fg, bg = options.transparent and c.none or c.bg },
     NotifyWARNBody = { fg = c.fg, bg = options.transparent and c.none or c.bg },
