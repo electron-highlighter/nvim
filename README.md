@@ -26,7 +26,7 @@ Install the theme with your preferred package manager:
 
 ```lua
 {
-  "electron_highlighter/nvim",
+  "electron-highlighter/nvim",
   lazy = false,
   priority = 1000,
   opts = {},
