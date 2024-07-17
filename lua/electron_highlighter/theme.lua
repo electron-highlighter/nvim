@@ -159,6 +159,9 @@ function M.setup()
     yamlBlockCollectionItemStart = { fg = c.fg },
     yamlKeyValueDelimiter = { fg = c.fg },
 
+    gitignoreSeparator = { fg = c.fg },
+    gitignorePattern = { fg = c.fg },
+
     -- mkdHeading = { fg = c.orange, bold = true },
     -- mkdCode = { bg = c.terminal_black, fg = c.fg },
     mkdCodeDelimiter = { bg = c.terminal_black, fg = c.fg },
