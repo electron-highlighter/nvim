@@ -231,7 +231,7 @@ function M.setup()
 
     --- Punctuation
     ["@punctuation.delimiter"] = { fg = c.cyan }, -- For delimiters ie: `.`
-    ["@punctuation.bracket"] = { fg = util.darken(c.fg, 0.5) }, -- For brackets and parens.
+    ["@punctuation.bracket"] = { fg = util.darken(c.fg, 0.7) }, -- For brackets and parens.
     ["@punctuation.special"] = { fg = c.blue5 }, -- For special punctutation that does not fall in the catagories before.
     ["@punctuation.special.markdown"] = { fg = c.orange, bold = true },
 
