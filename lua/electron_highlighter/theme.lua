@@ -242,7 +242,7 @@ function M.setup()
 
     --- Functions
     ["@constructor"] = { fg = c.fg }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-    ["@parameter"] = { fg = util.lighten(c.red, 0.3) }, -- For parameters of a function.
+    ["@parameter"] = { fg = util.lighten(c.orange, 0.7) }, -- For parameters of a function.
     ["@parameter.builtin"] = { fg = util.lighten(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
     --- Keywords
@@ -261,7 +261,7 @@ function M.setup()
     --- Identifiers
     ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-    ["@variable.parameter"] = { fg = util.lighten(c.red, 0.3) }, -- Parameters in functions
+    ["@variable.parameter"] = { fg = util.lighten(c.orange, 0.7) }, -- Parameters in functions
 
     --- Text
     -- ["@text.literal.markdown"] = { fg = c.blue },
