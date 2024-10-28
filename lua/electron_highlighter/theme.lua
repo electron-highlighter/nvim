@@ -127,7 +127,7 @@ function M.setup()
     -- Structure     = { }, --  struct, union, enum, etc.
     -- Typedef       = { }, --  A typedef
 
-    Special = { fg = c.blue }, -- (preferred) any special symbol
+    Special = { fg = c.orange }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
     Tag = { fg = c.red }, --    you can use CTRL-] on this
     -- Delimiter     = { }, --  character that needs attention
@@ -261,6 +261,7 @@ function M.setup()
     --- Identifiers
     ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@variable.parameter"] = { fg = c.teal }, -- Parameters in functions
 
     --- Text
     -- ["@text.literal.markdown"] = { fg = c.blue },

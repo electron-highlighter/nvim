@@ -1,7 +1,14 @@
+package main
 import (
   "fmt"
   "strings"
 )
+
+type Deck struct {
+  size int
+  color string
+  visible bool
+}
 
 type deck []string
 
