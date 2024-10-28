@@ -231,7 +231,7 @@ function M.setup()
 
     --- Punctuation
     ["@punctuation.delimiter"] = { fg = c.cyan }, -- For delimiters ie: `.`
-    ["@punctuation.bracket"] = { fg = c.fg_dark }, -- For brackets and parens.
+    ["@punctuation.bracket"] = { fg = util.darken(c.fg, 0.5) }, -- For brackets and parens.
     ["@punctuation.special"] = { fg = c.blue5 }, -- For special punctutation that does not fall in the catagories before.
     ["@punctuation.special.markdown"] = { fg = c.orange, bold = true },
 
@@ -241,7 +241,7 @@ function M.setup()
     ["@string.escape"] = { fg = c.magenta }, -- For escape characters within a string.
 
     --- Functions
-    ["@constructor"] = { fg = c.fg }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    ["@constructor"] = { fg = util.lighten(c.magenta, 0.7) }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     ["@parameter"] = { fg = util.lighten(c.red, 0.6) }, -- For parameters of a function.
     ["@parameter.builtin"] = { fg = util.lighten(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
