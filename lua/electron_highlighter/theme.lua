@@ -261,7 +261,7 @@ function M.setup()
     --- Identifiers
     ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
-    ["@variable.parameter"] = { fg = util.lighten(c.red, 0.6) }, -- Parameters in functions
+    ["@variable.parameter"] = { fg = util.lighten(c.orange, 0.6) }, -- Parameters in functions
 
     --- Text
     -- ["@text.literal.markdown"] = { fg = c.blue },
