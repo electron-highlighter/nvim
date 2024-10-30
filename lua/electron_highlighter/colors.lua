@@ -126,7 +126,9 @@ function M.setup(opts)
       or config.options.styles.sidebars == "dark" and colors.bg_dark
       or colors.bg
 
-  colors.bg_float = colors.bg_dark
+  colors.bg_float = config.options.styles.floats == "transparent" and colors.none
+      or config.options.styles.floats == "dark" and colors.bg_dark
+      or colors.bg
   colors.bg_visual = util.darken(colors.blue0, 0.4)
   colors.bg_search = colors.blue0
   colors.fg_sidebar = colors.fg_dark
