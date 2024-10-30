@@ -24,7 +24,7 @@ function M.setup()
   }
 
   local c        = theme.colors
-  FloatBorder    = { bg = c.bg_float, fg = c.cyan }
+  FloatBorder    = { bg = c.bg_float, fg = c.orange }
   NormalFloat    = { bg = c.bg_float }
 
   -- cursors change color based on mode
@@ -442,18 +442,14 @@ function M.setup()
     TelescopePreviewLine                 = { link = "NormalFloat" },
     TelescopePreviewNormal               = { link = "NormalFloat" },
     TelescopePreviewTitle                = { link = "TelescopeBorder" },
-
     TelescopePrompt                      = { link = "TelescopeNormal" },
     TelescopePromptBorder                = { bg = c.bg_float, fg = c.orange },
     TelescopePromptNormal                = { bg = c.bg_float, fg = c.fg_dark },
     TelescopePromptPrefix                = { bg = c.bg_float, fg = c.orange },
     TelescopePromptTitle                 = { link = "TelescopeBorder" },
-
     TelescopeResultsBorder               = { link = "TelescopeBorder" },
     TelescopeResultsNormal               = { link = "NormalFloat" },
     TelescopeResultsTitle                = { link = "TelescopeBorder" },
-
-    -- TelescopeSelection      = { bg = c.bg_highlight, fg = c.orange }
     TelescopeSelection                   = { fg = c.orange, bg = c.bg_highlight },
     TelescopeSelectionCaret              = { fg = c.orange, bg = c.bg_highlight },
 

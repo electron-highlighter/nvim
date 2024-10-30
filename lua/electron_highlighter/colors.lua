@@ -6,7 +6,7 @@ local M = {}
 M.default = {
   none = "NONE",
   bg = "#24283b",
-  bg_dark = "#141820",
+  bg_dark = "#1f2335",
   bg_highlight = "#37435C",
   terminal_black = "#414868",
   fg = "#a8b5d1",
@@ -47,7 +47,7 @@ M.default = {
 
 M.night = {
   none = "NONE",
-  bg = "#141820",
+  bg = "#1b212c",
   bg_dark = "#141820",
   bg_highlight = "#37435C",
   terminal_black = "#414868",
@@ -126,7 +126,7 @@ function M.setup(opts)
       or config.options.styles.sidebars == "dark" and colors.bg_dark
       or colors.bg
 
-  colors.bg_float = util.darken(colors.bg, 0.9, colors.bg_dark)
+  colors.bg_float = colors.bg_dark
   colors.bg_visual = util.darken(colors.blue0, 0.4)
   colors.bg_search = colors.blue0
   colors.fg_sidebar = colors.fg_dark
