@@ -433,25 +433,28 @@ function M.setup()
     GitSignsDelete                       = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
-    TelescopeBorder                      = { fg = c.border_highlight, bg = c.bg_float },
+    TelescopeBorder                      = { fg = c.orange, bg = c.bg_float },
+    TelescopePreviewBorder               = { link = "TelescopeBorder" },
+    TelescopePreviewTitle                = { link = "TelescopeBorder" },
+    TelescopePromptTitle                 = { link = "TelescopeBorder" },
+    TelescopeResultsBorder               = { link = "TelescopeBorder" },
+    TelescopeResultsTitle                = { link = "TelescopeBorder" },
+
     TelescopeNormal                      = { fg = c.fg, bg = c.bg_float },
+    TelescopePrompt                      = { link = "TelescopeNormal" },
+
     TelescopeMatching                    = { fg = c.orange },
     TelescopeMultiSelection              = { fg = c.fg_dark },
-    TelescopePreview                     = { link = "NormalFloat" },
-    TelescopePreviewBorder               = { link = "TelescopeBorder" },
-    TelescopePreviewLine                 = { link = "NormalFloat" },
-    TelescopePreviewNormal               = { link = "NormalFloat" },
-    TelescopePreviewTitle                = { link = "TelescopeBorder" },
-    TelescopePrompt                      = { link = "TelescopeNormal" },
     TelescopePromptBorder                = { bg = c.bg_float, fg = c.orange },
     TelescopePromptNormal                = { bg = c.bg_float, fg = c.fg_dark },
     TelescopePromptPrefix                = { bg = c.bg_float, fg = c.orange },
-    TelescopePromptTitle                 = { link = "TelescopeBorder" },
-    TelescopeResultsBorder               = { link = "TelescopeBorder" },
-    TelescopeResultsNormal               = { link = "NormalFloat" },
-    TelescopeResultsTitle                = { link = "TelescopeBorder" },
     TelescopeSelection                   = { fg = c.orange, bg = c.bg_highlight },
     TelescopeSelectionCaret              = { fg = c.orange, bg = c.bg_highlight },
+
+    TelescopePreview                     = { link = "NormalFloat" },
+    TelescopePreviewLine                 = { link = "NormalFloat" },
+    TelescopePreviewNormal               = { link = "NormalFloat" },
+    TelescopeResultsNormal               = { link = "NormalFloat" },
 
     -- NvimTree
     NvimTreeNormal                       = { fg = c.fg_sidebar, bg = c.bg_sidebar },
