@@ -20,14 +20,14 @@ M.default = {
   green = "#58ffc7",
   red = "#f7768e",
   git = {
-    add = "#10b981",
-    change = "#ff9e64",
+    add = "#58ffc7",
+    change = "#ffd9af",
     delete = "#f7768e",
   },
   gitSigns = {
-    add = "#10b981",
-    change = "#ff9e64",
-    delete = "#f7768e"
+    add = "#58ffc7",
+    change = "#ffd9af",
+    delete = "#f7768e",
   },
   dark3 = "#545c7e",
   dark5 = "#737aa2",
@@ -40,8 +40,8 @@ M.default = {
   magenta = "#d2a6ef",
   magenta2 = "#ff007c",
   teal = "#14b8a6",
-  green1 = "#10b981",
-  green2 = "#059669",
+  green1 = "#34febb",
+  green2 = "#34febb",
   red1 = "#ff5874",
 }
 
@@ -62,14 +62,14 @@ M.night = {
   green = "#58ffc7",
   red = "#f7768e",
   git = {
-    change = "#ff9e64",
-    add = "#10b981",
+    add = "#58ffc7",
+    change = "#ffd9af",
     delete = "#f7768e",
   },
   gitSigns = {
-    add = "#10b981",
-    change = "#ff9e64",
-    delete = "#f7768e"
+    add = "#58ffc7",
+    change = "#ffd9af",
+    delete = "#f7768e",
   },
   dark3 = "#545c7e",
   dark5 = "#737aa2",
@@ -82,8 +82,8 @@ M.night = {
   magenta = "#d2a6ef",
   magenta2 = "#ff007c",
   teal = "#14b8a6",
-  green1 = "#10b981",
-  green2 = "#059669",
+  green1 = "#34febb",
+  green2 = "#34febb",
   red1 = "#ff5874",
 }
 
