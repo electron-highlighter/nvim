@@ -429,30 +429,6 @@ function M.setup()
     GitSignsChange                       = { fg = c.gitSigns.change }, -- diff mode: Changed line |diff.txt|
     GitSignsDelete                       = { fg = c.gitSigns.delete }, -- diff mode: Deleted line |diff.txt|
 
-    -- Telescope
-    TelescopeBorder                      = { fg = c.orange, bg = c.bg_float },
-    TelescopePreviewBorder               = { link = "TelescopeBorder" },
-    TelescopePreviewTitle                = { link = "TelescopeBorder" },
-    TelescopePromptTitle                 = { link = "TelescopeBorder" },
-    TelescopeResultsBorder               = { link = "TelescopeBorder" },
-    TelescopeResultsTitle                = { link = "TelescopeBorder" },
-
-    TelescopeNormal                      = { fg = c.fg, bg = c.bg_float },
-    TelescopePrompt                      = { link = "TelescopeNormal" },
-
-    TelescopeMatching                    = { fg = c.orange },
-    TelescopeMultiSelection              = { fg = c.fg_dark },
-    TelescopePromptBorder                = { bg = c.bg_float, fg = c.orange },
-    TelescopePromptNormal                = { bg = c.bg_float, fg = c.fg_dark },
-    TelescopePromptPrefix                = { bg = c.bg_float, fg = c.orange },
-    TelescopeSelection                   = { fg = c.orange, bg = c.bg_highlight },
-    TelescopeSelectionCaret              = { fg = c.orange, bg = c.bg_highlight },
-
-    TelescopePreview                     = { link = "NormalFloat" },
-    TelescopePreviewLine                 = { link = "NormalFloat" },
-    TelescopePreviewNormal               = { link = "NormalFloat" },
-    TelescopeResultsNormal               = { link = "NormalFloat" },
-
     -- NvimTree
     NvimTreeNormal                       = { fg = c.fg_sidebar, bg = c.bg_sidebar },
     NvimTreeWinSeparator                 = {
@@ -835,6 +811,32 @@ function M.setup()
     TreesitterContext                    = { bg = util.darken(c.fg_gutter, 0.8) },
     Hlargs                               = { fg = c.yellow },
     -- TreesitterContext = { bg = util.darken(c.bg_visual, 0.4) },
+
+    -- Telescope
+    -- Put it at the bottom so it takes priority
+    TelescopeBorder                      = { fg = c.orange, bg = c.bg_float },
+    TelescopePreviewBorder               = { link = "TelescopeBorder" },
+    TelescopePreviewTitle                = { link = "TelescopeBorder" },
+    TelescopePromptTitle                 = { link = "TelescopeBorder" },
+    TelescopeResultsBorder               = { link = "TelescopeBorder" },
+    TelescopeResultsTitle                = { link = "TelescopeBorder" },
+
+    TelescopeNormal                      = { fg = c.fg, bg = c.bg_float },
+    TelescopePrompt                      = { link = "TelescopeNormal" },
+
+    TelescopeMultiSelection              = { fg = c.fg_dark },
+    TelescopePromptBorder                = { bg = c.bg_float, fg = c.orange },
+    TelescopePromptNormal                = { bg = c.bg_float, fg = c.fg_dark },
+    TelescopePromptPrefix                = { bg = c.bg_float, fg = c.orange },
+    TelescopeSelection                   = { fg = c.orange, bg = c.bg_highlight },
+    TelescopeSelectionCaret              = { fg = c.orange, bg = c.bg_highlight },
+
+    TelescopePreview                     = { link = "NormalFloat" },
+    TelescopePreviewLine                 = { link = "NormalFloat" },
+    TelescopePreviewNormal               = { link = "NormalFloat" },
+    TelescopeResultsNormal               = { link = "NormalFloat" },
+
+    TelescopeMatching                    = { fg = c.orange },
   }
 
   if not vim.diagnostic then
