@@ -833,7 +833,7 @@ function M.setup()
 
     TelescopePreview                     = { link = "NormalFloat" },
     TelescopePreviewLine                 = { default = true, link = "Search" },
-    TelescopePreviewMatch                = { default = true, link = "Search" },
+    TelescopePreviewMatch                = { bg = c.orange, fg = c.bg_float },
     TelescopePreviewNormal               = { link = "NormalFloat" },
     TelescopeResultsNormal               = { link = "NormalFloat" },
 
