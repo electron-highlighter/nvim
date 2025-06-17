@@ -832,7 +832,8 @@ function M.setup()
     TelescopeSelectionCaret              = { fg = c.orange, bg = c.bg_highlight },
 
     TelescopePreview                     = { link = "NormalFloat" },
-    TelescopePreviewLine                 = { link = "NormalFloat" },
+    TelescopePreviewLine                 = { default = true, link = "Search" },
+    TelescopePreviewMatch                = { default = true, link = "Search" },
     TelescopePreviewNormal               = { link = "NormalFloat" },
     TelescopeResultsNormal               = { link = "NormalFloat" },
 
