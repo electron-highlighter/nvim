@@ -24,6 +24,9 @@ local checks = {
   { "Operator.fg", hl("Operator", "fg"), "#0a9fbf" },
   -- Tag: fg = c.red (#f52a65)
   { "Tag.fg", hl("Tag", "fg"), "#f52a65" },
+  -- Cursor: blue block with a white character under it (day)
+  { "CursorNormal.bg", hl("CursorNormal", "bg"), "#366ff0" },
+  { "CursorNormal.fg", hl("CursorNormal", "fg"), "#ffffff" },
 }
 
 local failed = 0
