@@ -140,6 +140,7 @@ function M.setup(opts)
   local colors = vim.tbl_deep_extend("force", vim.deepcopy(M.default), palette)
 
   util.bg = colors.bg
+  util.fg = config.options.style == "day" and colors.fg or "#ffffff"
   util.day_brightness = config.options.day_brightness
 
   colors.diff = {
