@@ -150,9 +150,10 @@ function M.setup(opts)
   }
 
   colors.git.ignore = colors.dark3
-  colors.black = util.darken(colors.bg, 0.8, "#000000")
-  colors.border_highlight = util.darken(colors.blue1, 0.8)
-  colors.border = colors.black
+  local is_day = config.options.style == "day"
+  colors.black = is_day and "#1f2733" or util.darken(colors.bg, 0.8, "#000000")
+  colors.border_highlight = is_day and "#366ff0" or util.darken(colors.blue1, 0.8)
+  colors.border = is_day and "#d3d8e3" or colors.black
 
   -- Popups and statusline always get a dark background
   colors.bg_popup = colors.bg_dark
