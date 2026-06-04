@@ -87,6 +87,43 @@ M.night = {
   red1 = "#ff5874",
 }
 
+-- Light variant — Electron Highlighter Day. Values from the canonical palette
+-- (electron-highlighter/palette: electron-day.js). Light-appropriate supporting
+-- shades (blue0-7, dark3/5) are tuned for a light background.
+M.day = {
+  none = "NONE",
+  bg = "#eef0f5",
+  bg_dark = "#e4e7ee",
+  bg_highlight = "#dde3ee",
+  terminal_black = "#c2c6d4",
+  fg = "#2f3b54",
+  fg_dark = "#59647e",
+  fg_gutter = "#aab4c6",
+  comment = "#7b88a8",
+  blue = "#366ff0",
+  cyan = "#0a9fbf",
+  orange = "#f0633c",
+  yellow = "#d18a16",
+  green = "#10a877",
+  red = "#f52a65",
+  git = { add = "#10a877", change = "#d18a16", delete = "#f52a65" },
+  gitSigns = { add = "#10a877", change = "#d18a16", delete = "#f52a65" },
+  dark3 = "#aab4c6",
+  dark5 = "#8b95aa",
+  blue0 = "#c4d4f5",
+  blue1 = "#0a9fbf",
+  blue2 = "#2f6ee6",
+  blue5 = "#5f86e0",
+  blue6 = "#9bb5f5",
+  blue7 = "#b6c2e8",
+  magenta = "#8b4fe0",
+  magenta2 = "#e62b86",
+  teal = "#0e9488",
+  green1 = "#0c9b6e",
+  green2 = "#10a877",
+  red1 = "#e11d48",
+}
+
 ---@return ColorScheme
 function M.setup(opts)
   opts = opts or {}
