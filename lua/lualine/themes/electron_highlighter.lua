@@ -4,33 +4,33 @@ local config = require("electron_highlighter.config").options
 local electron_highlighter = {}
 
 electron_highlighter.normal = {
-  a = { bg = colors.blue, fg = colors.black },
+  a = { bg = colors.blue, fg = colors.bg },
   b = { bg = colors.fg_gutter, fg = colors.blue },
   c = { bg = colors.bg_statusline, fg = colors.fg_sidebar },
 }
 
 electron_highlighter.insert = {
-  a = { bg = colors.teal, fg = colors.black },
+  a = { bg = colors.teal, fg = colors.bg },
   b = { bg = colors.fg_gutter, fg = colors.teal },
 }
 
 electron_highlighter.command = {
-  a = { bg = colors.orange, fg = colors.black },
+  a = { bg = colors.orange, fg = colors.bg },
   b = { bg = colors.fg_gutter, fg = colors.orange },
 }
 
 electron_highlighter.visual = {
-  a = { bg = colors.magenta, fg = colors.black },
+  a = { bg = colors.magenta, fg = colors.bg },
   b = { bg = colors.fg_gutter, fg = colors.magenta },
 }
 
 electron_highlighter.replace = {
-  a = { bg = colors.red, fg = colors.black },
+  a = { bg = colors.red, fg = colors.bg },
   b = { bg = colors.fg_gutter, fg = colors.red },
 }
 
 electron_highlighter.terminal = {
-  a = {bg = colors.green1, fg = colors.black },
+  a = {bg = colors.green1, fg = colors.bg },
   b = {bg = colors.fg_gutter, fg=colors.green1 },
 }
 

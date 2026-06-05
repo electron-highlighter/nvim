@@ -818,7 +818,7 @@ function M.setup()
 
     -- Telescope
     -- Put it at the bottom so it takes priority
-    TelescopeBorder                      = { fg = c.orange, bg = c.bg_float },
+    TelescopeBorder                      = is_day and { fg = c.blue, bg = c.bg_float } or { fg = c.orange, bg = c.bg_float },
     TelescopePreviewBorder               = { link = "TelescopeBorder" },
     TelescopePreviewTitle                = { link = "TelescopeBorder" },
     TelescopePromptTitle                 = { link = "TelescopeBorder" },
@@ -841,7 +841,7 @@ function M.setup()
     TelescopePreviewNormal               = { link = "NormalFloat" },
     TelescopeResultsNormal               = { link = "NormalFloat" },
 
-    TelescopeMatching                    = { fg = c.orange },
+    TelescopeMatching                    = is_day and { fg = c.blue } or { fg = c.orange },
   }
 
   if not vim.diagnostic then
