@@ -104,7 +104,13 @@ CONFIGURATION                      *electron_highlighter.nvim-electron-highlight
 
   configuration needs to be set **BEFORE** loading the color scheme with
   `colorscheme electron_highlighter`
-The theme comes in two styles - the default, and a darker variant `night`.
+The theme comes in three styles - the default (dark), a darker variant `night`, and a
+light variant `day`. Selecting `day` also sets a light background
+(`vim.o.background = "light"`):
+>lua
+    require("electron_highlighter").setup({ style = "day" })
+    vim.cmd.colorscheme("electron_highlighter")
+<
 
 Electron Highlighter will use the default options, unless you call `setup`.
 

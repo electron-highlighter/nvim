@@ -1,6 +1,6 @@
 # Electron Highlighter for Neovim
 
-A dark Neovim theme written in Lua ported from the excellent
+A dark and light Neovim theme written in Lua ported from the excellent
 [TokyoNight](https://github.com/folke/tokyonight.nvim) theme.
 
 ## Screenshot
@@ -12,6 +12,7 @@ A dark Neovim theme written in Lua ported from the excellent
 - supports the latest Neovim 0.9.0 features
 - terminal colors
 - darker background for sidebar-like windows
+- light `day` variant (a light background, for daytime/light-mode use)
 - supports all major plugins
 
 ## ⚡️ Requirements
@@ -82,7 +83,25 @@ let g:lightline = {'colorscheme': 'electron_highlighter'}
 > ❗️ configuration needs to be set **BEFORE** loading the color scheme with
 > `colorscheme electron_highlighter`
 
-The theme comes in two styles: the default, and a darker variant `night`.
+The theme comes in three styles: the default (dark), a darker variant `night`, and a
+light variant `day`. Selecting `day` also switches Neovim to a light background
+(`vim.o.background = "light"`).
+
+```lua
+-- Light variant:
+require("electron_highlighter").setup({ style = "day" })
+vim.cmd.colorscheme("electron_highlighter")
+```
+
+Tip: if your shell exports the current OS/terminal theme (e.g. `CURRENT_THEME`), you can
+follow it automatically:
+
+```lua
+require("electron_highlighter").setup({
+  style = (os.getenv("CURRENT_THEME") == "electron_highlighter_day") and "day" or "default",
+})
+vim.cmd.colorscheme("electron_highlighter")
+```
 
 Electron Highlighter will use the default options, unless you call `setup`.
 
