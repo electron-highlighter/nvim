@@ -25,19 +25,23 @@ function M.setup()
 
   local c       = theme.colors
 
+  -- Day uses a blue cursor with the editor bg as the character under it; the
+  -- dark styles keep their original cursor groups.
+  local is_day  = options.style == "day"
+
   theme.highlights = {
     Foo                                        = { bg = c.magenta2, fg = c.fg },
 
     Comment                                    = { fg = c.comment, style = options.styles.comments }, -- any comment
     ColorColumn                                = { bg = c.black },                                    -- used for the columns set with 'colorcolumn'
     Conceal                                    = { fg = c.dark5 },                                    -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor                                     = { fg = c.bg, bg = c.blue },                            -- character under the cursor
+    Cursor                                     = is_day and { fg = c.bg, bg = c.blue } or { fg = c.bg, bg = c.fg }, -- character under the cursor
     -- cursors change color based on mode
-    CursorNormal                               = { bg = c.blue, fg = c.bg },
-    CursorVisual                               = { bg = c.magenta, fg = c.bg },
-    CursorInsert                               = { bg = c.green, fg = c.bg },
-    lCursor                                    = { fg = c.bg, bg = c.blue }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM                                   = { fg = c.bg, bg = c.blue }, -- like Cursor, but used when in IME mode |CursorIM|
+    CursorNormal                               = is_day and { bg = c.blue, fg = c.bg } or { bg = c.fg_dark, fg = c.fg_dark },
+    CursorVisual                               = is_day and { bg = c.magenta, fg = c.bg } or { bg = c.magenta, fg = c.magenta },
+    CursorInsert                               = is_day and { bg = c.green, fg = c.bg } or { bg = c.green, fg = c.green },
+    lCursor                                    = is_day and { fg = c.bg, bg = c.blue } or { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM                                   = is_day and { fg = c.bg, bg = c.blue } or { fg = c.bg, bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn                               = { bg = c.bg_highlight },  -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine                                 = { bg = c.bg_highlight },  -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory                                  = { fg = c.blue },          -- directory names (and other special names in listings)
