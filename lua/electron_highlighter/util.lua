@@ -187,6 +187,7 @@ function M.load(theme)
   end
 
   vim.o.termguicolors = true
+  vim.o.background = require("electron_highlighter.config").options.style == "day" and "light" or "dark"
   vim.g.colors_name = "electron_highlighter"
 
   if ts.new_style() then
